@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xsi:schemaLocation="
+      http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+   <context:annotation-config />
+   <context:component-scan base-package="com.cloudhashing.core" />
+   <context:property-placeholder location="applicationContext.properties"/>
+
+   <bean class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
+      <property name="driverClass" value="${jdbc.driver}" />
+      <property name="jdbcUrl" value="${jdbc.url}" />
+      <property name="username" value="${jdbc.user}" />
+      <property name="password" value="${jdbc.password}" />
+      <property name="idleConnectionTestPeriod" value="${connectionPool.idleConnectionTestPeriod}" />
+      <property name="idleMaxAge" value="${connectionPool.idleMaxAge}" />
+      <property name="maxConnectionsPerPartition" value="${connectionPool.maxConnectionsPerPartition}" />
+      <property name="minConnectionsPerPartition" value="${connectionPool.minConnectionsPerPartition}" />
+      <property name="partitionCount" value="${connectionPool.partitionCount}" />
+      <property name="acquireIncrement" value="${connectionPool.acquireIncrement}" />
+      <property name="statementsCacheSize" value="${connectionPool.statementsCacheSize}" />
+      <property name="releaseHelperThreads" value="${connectionPool.releaseHelperThreads}" />
+   </bean>
+
+</beans>
