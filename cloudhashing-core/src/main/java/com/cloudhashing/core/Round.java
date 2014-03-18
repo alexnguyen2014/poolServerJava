@@ -6,7 +6,7 @@ import com.cloudhashing.core.collections.DefaultDict;
 import com.cloudhashing.core.factory.DefaultStringZeroFactory;
 
 public class Round {
-   //FIRST COMMIT
+   //second COMMIT
    private Long id;
    private DefaultDict<String, Long> shares = new DefaultDict<String, Long>(new DefaultStringZeroFactory());
    private Long sharesStop;
